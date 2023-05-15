@@ -9,67 +9,42 @@ Technical Story: atributo de qualidade - analisabilidade <!-- optional -->
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+A partir de um possível erro encontrado no sistema, que atributo de qualidade possui os requisitos certos para ajudar os administradores a encontrarem uma solução de maneira eficiente e eficaz?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Visando todo o sistema e sua complexidade
+* Levando em consideração que existem vários administradores/desenvolvedores e que cada um deles ficou responsável por uma parte do código, sendo assim todos precisam conseguir entender o código e o sistema como um todo e encontrar os erros facilmente 
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Analisabilidade
+* Testabilidade
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Chosen option: “Analisabilidade” porque um sistema que tenha esse atributo de qualidade bem aplicado, permite aos administradores que identifiquem os problemas, entendam todo o funcionamento interno e enxerguem possíveis pontos de melhoria.
 
 ### Positive Consequences <!-- optional -->
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+A equipe de desenvolvimento trabalha com harmonia e eficiência já que todos conseguem entender, analisar e buscar melhorias para cada parte da aplicação.
 
 ### Negative Consequences <!-- optional -->
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+Para que o código esteja organizado, comentado e documentado, exige muito tempo e esforço de todos os desenvolvedores da equipe. Além disso, a análise detalhada de partes individuais levam a uma otimização excessiva em nível local, resultando em desempenho inferior por não levar em conta o impacto em outras partes do sistema.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### Analisabilidade
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, pois permite examinar, analisar e compreender o sistema
+* Bom, pois traz facilidade na manutenção
+* Bom, pois permite a busca contínua de melhorias
+* Ruim, pois leva tempo e esforço
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### Tetsabilidade
 
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-## Links <!-- optional -->
-
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* Bom, pois facilita testes no sistema para verificar se atende aos requisitos 
+* Ruim, pois tem foco específico em aplicar testes
 
 <!-- markdownlint-disable-file MD013 -->
