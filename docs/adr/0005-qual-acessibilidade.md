@@ -9,67 +9,39 @@ Technical Story: atributo de qualidade - acessibilidade <!-- optional -->
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Se tratando de um jogo, onde o público alvo principal são pessoas que possuem algum grau de imparidade visual, qual o atributo de qualidade é indispensável para que o usuário consiga interagir com a aplicação em sua completude?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Levando e consideração que, a maneira como o deficiente visual interage com o celular é diferente;
+* Visando feedbacks sonoros para que o o usuário consiga interagir com o jogo.
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Acessibilidade;
+* Operabilidade.
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Chosen option: "Acessibilidade", porque esse atributo avalia o grau em que o produto foi projetado para atender pessoas com necessidades especiais. Como a aplicação está sendo desenvolvida para atingir pessoas com deficiência visual, além de ser fácil de usar e controlar, o jogo precisa oferecer meios de facilitar a integração do usuário.
 
 ### Positive Consequences <!-- optional -->
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+* Garantindo esse atributo, o usuário irá conseguir interagir com o aplicativo sem muita dificuldade.
 
 ### Negative Consequences <!-- optional -->
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+* Não é um atributo trivial para garantir, é necessário entender como os deficientes visuais interagem com o celular e realizar testes contínuos visando a melhoria da aplicação.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### Acessibilidade
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, pois descreve uma característica fundamental da aplicação;
+* Bom, pois sem acessibilidade, o público alvo principal não conseguirá usar o o jogo;
+* Ruim, pois não é um atributo de qualidade fácil de assegurar.
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### Operabilidade
 
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-## Links <!-- optional -->
-
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
-
-<!-- markdownlint-disable-file MD013 -->
+* Bom, pois garante a facilidade de uso;
+* Ruim, pois somente ele não irá assegurar que os usuários com imparidade visual irão conseguir interagir com o jogo.

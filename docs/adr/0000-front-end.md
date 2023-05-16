@@ -9,67 +9,47 @@ Technical Story: flutter.dev <!-- optional -->
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Qual seria uma tecnologia de front-end que poderia abrangir a questão da acessibilidade sem problemas e que fosse mais fácil de ser desenvolvida pensando nas habilidades dos integrantes?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Acessibilidade, pensando no aplicativo para pessoas com deficiência visual
+* Experiência com aplicativos mobile, pensando nos integrantes
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* React Native
+* Flutter
+* Kotlin
+* Swift
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
-
-### Positive Consequences <!-- optional -->
-
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
-
-### Negative Consequences <!-- optional -->
-
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+Opção escolhida: Flutter, porque existem bibliotecas nativas do framework para trabalhar tanto com o desenvolvimento front, back e também os testes, além de possuir mecanismos de acessibilidade.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### [React Native]
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, porque é bem fácil de se fazer o deploy em produção na App Store por conta do expo
+* Bom, pois engloba aparelhos IOS e Android
+* Ruim, por conta da acessibilidade
+* Ruim, por conta dos conhecimentos da equipe serem poucos relacionados ao framework
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### [Flutter]
 
-### [option 2]
+* Ruim, porque é bem complicado de se fazer o deploy em produção na App Store
+* Bom, pois engloba aparelhos IOS e Android
+* Bom, por conta da acessibilidade
+* Bom, por conta dos conhecimentos da equipe serem poucos relacionados ao framework
 
-[example | description | pointer to more information | …] <!-- optional -->
+### [Kotlin]
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Ruim, pois é uma linguagem nativa para IOS
+* Ruim, por conta dos conhecimentos da equipe serem poucos relacionados ao framework
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Flutter vs React Native](https://cynoteck.com/pt/blog-post/flutter-vs-react-native-navigate-the-options/#:~:text=O%20React%20Native%20depende%20de,voc%C3%AA%20deve%20sempre%20escolher%20Flutter)
 
 <!-- markdownlint-disable-file MD013 -->

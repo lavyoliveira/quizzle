@@ -9,67 +9,46 @@ Technical Story: atributo de qualidade - coexistência <!-- optional -->
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Sob a ótica das características de qualidade do produto de software, mais especificamente da Compatibilidade, qual requisito melhor configura um atributo de qualidade essencial para que o aplicativo a ser desenvolvido funcione bem?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Visando as características do aplicativo
+* Levando em consideração que, para o funcionamento do aplicativo, será fundamental a utilização do software "Talkback"
+* Compreendendo que a parte terceira "Talkback" não apenas trocará informações com o aplicativo, ou responderá requisições avulsas, mas compartilhará recursos com ele, integrando parte de seu funcionamento.
+<!-- numbers of drivers can vary -->
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Coexistência
+* Interoperabilidade
+ <!-- numbers of options can vary -->
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+Chosen option: "Coexistência", pois esse atributo avalia o quão bem o produto desenpenha suas funções enquanto compartilha ambiente e recursos comuns com outros produtos. Dado que o aplicativo Talkback integrará o funcionamento do jogo a ser desenvolvido, essa característica de qualidade se faz uma métrica essencial para avaliar o bom funcionamento do software.
 
 ### Positive Consequences <!-- optional -->
 
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
+* No contexto de desenvolvimento, a seleção desse atributo de qualidade têm deixado a equipe mais atenta quanto a harmonia entre o funcionamento dos dois softwares, tornando-a o mais eficiente e eficaz possível.
+
 
 ### Negative Consequences <!-- optional -->
 
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+* A possibilidade de interoperabilidade com outros softwares, que talvez pudesse ser benéfica ao aplicativo no futuro, deixou de ser considerada por hora.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### Coexistência
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, pois descreve uma característica fundamental ao aplicativo
+* Bom, pois sua consideração é relevante ao desenvolvimento correto do software
+* Ruim, pois não é um atributo de qualidade fácil de se assegurar. É necessário dedicação ao estudo das ferramentas entre as quais se deseja harmonia
+ <!-- numbers of pros and cons can vary -->
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### Interoperabilidade
 
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-## Links <!-- optional -->
-
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* Bom, pois são várias as possibilidades de melhoria de um produto de software através da interação com outros.
+* Ruim, pois o atributo não se encaixa no escopo atual da aplicação em desenvolvimento.
 
 <!-- markdownlint-disable-file MD013 -->

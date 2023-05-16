@@ -5,71 +5,43 @@
 * Date: 09/05/2023 21:32:01 <!-- optional -->
 * Template used: [MADR 3.0.0](https://adr.github.io/madr/) <!-- optional -->
 
-Technical Story: mvc <!-- optional -->
-
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Qual seria um padrão arquitetural para o software que correspondesse a essência do aplicativo e que considerasse nossos atributos de qualidade?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Pensando num padrão arquitetural para um aplicativo pequeno
+* Levando em consideração a pouca experiência dos integrantes da equipe
+* Explorando uma arquitetura que colaborasse com a boa prática de desenvolvimento dos atributos de qualidade
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* MVC
+* Clean Architecture
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
-
-### Positive Consequences <!-- optional -->
-
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
-
-### Negative Consequences <!-- optional -->
-
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+Opção escolhida: MVC, pois apesar de serem utilizados módulos de forma a melhorar o acoplamento, o MVC colabora para aplicativos mais simples e que não hajam preocupações de escalabilidade. Software iniciantes combinam bem com o padrão arquitetural MVC.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### MVC
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, pois se trata de uma arquitetura com muito uso e muito material de apoio
+* Bom, por ser uma arquitetura simples de ser implementada
+* Ruim, em questões de complexidade de software, pois é feito com enfoque nos de menor complexidade
+* Bom, pois a complexidade do aplicativo é bem pequena, então o padrão se encaixa
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### Clean Architecture
 
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Bom, pois se trata de uma arquitetura bastante completa
+* Ruim, pois é uma arquitetura que demanda muito tempo no começo
+* Bom, pois a arquitetura facilita o desacoplamento dos módulos
+* Bom, pois colabora na evolução do software em questões de manutenção
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Why using MVC](https://rohaaan.hashnode.dev/mastering-the-mvc-pattern-in-flutter-a-guide-to-better-code-organization)<!-- example: Refined by [ADR-0005](0005-example.md) -->
 
 <!-- markdownlint-disable-file MD013 -->

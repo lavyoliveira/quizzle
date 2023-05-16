@@ -5,71 +5,50 @@
 * Date: 09/05/2023 21:31:02 <!-- optional -->
 * Template used: [MADR 3.0.0](https://adr.github.io/madr/) <!-- optional -->
 
-Technical Story: get <!-- optional -->
-
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+Qual seria o melhor back-end para gestão de estados que fornecesse a possibilidade de guardar na sessão do dispositivo as respostas e pontuações?
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g., a force, facing concern, …]
-* [driver 2, e.g., a force, facing concern, …]
-* … <!-- numbers of drivers can vary -->
+* Efetividade para não perder os dados
+* Experiência com o back-end, pensando nos integrantes
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
-* … <!-- numbers of options can vary -->
+* Bloc
+* Cubit
+* Get
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
-
-### Positive Consequences <!-- optional -->
-
-* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-* …
-
-### Negative Consequences <!-- optional -->
-
-* [e.g., compromising quality attribute, follow-up decisions required, …]
-* …
+A opção escolhida foi: Get, satisfazendo os direcionadores de decisões, por ser o gerenciador de estado mais fácil de se aprender e também bastante eficaz.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### [Bloc]
 
-[example | description | pointer to more information | …] <!-- optional -->
+* Bom, gerenciador de estados bastante completo e complexo, com muitas funcionalidades
+* Ruim, pois de tão completo não atendia as necessidades do projeto
+* Ruim, difícil de se aprender e implementar
+* Bom, eficaz
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+### [Cubit]
 
-### [option 2]
+* Bom, gerenciador de estados bastante complexo, com muitas funcionalidades
+* Bom, versão reduzida do Bloc, mas ainda com implementação desnecessária no projeto
+* Ruim, difícil de se aprender e implementar
+* Bom, eficaz
 
-[example | description | pointer to more information | …] <!-- optional -->
+### [GetX]
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Ruim, gerenciador de estados bem sucinto
+* Bom, coube nas necessidades do projeto
+* Bom, fácil de se aprender e implementar
+* Bom, serve com seu propósito
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
+* [Bloc vs GetX](https://medium.com/@sonawanedipak111/getx-vs-bloc-flutter-741e480bae67) <!-- example: Refined by [ADR-0005](0005-example.md) -->
 
 <!-- markdownlint-disable-file MD013 -->
