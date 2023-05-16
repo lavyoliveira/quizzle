@@ -32,8 +32,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SafeArea(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

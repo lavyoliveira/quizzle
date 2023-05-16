@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
+import '../views/quiz_screen.dart';
 
 class ButtonStart extends StatelessWidget {
   const ButtonStart({super.key});
@@ -8,7 +9,7 @@ class ButtonStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: null,
+      onTap: () => Get.to(QuizScreen()),
       child: Container(
         width: double.infinity,
         alignment: Alignment.center,
