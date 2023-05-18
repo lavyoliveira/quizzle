@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
 import 'package:quizzle/components/inputs.dart';
+import 'package:quizzle/controllers/user_controller.dart';
 
 import '../components/buttons.dart';
 
@@ -10,6 +11,8 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(UserController());
+
     return Scaffold(
       backgroundColor: bgColorBlue,
       body: Container(
