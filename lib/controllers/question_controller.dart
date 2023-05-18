@@ -2,11 +2,15 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quizzle/models/questions.dart';
+import 'package:quizzle/controllers/user_controller.dart';
+import 'package:quizzle/views/result_screen.dart';
 
 class QuestionController extends GetxController
     with SingleGetTickerProviderMixin {
   late PageController _pageController;
   PageController get pageController => _pageController;
+  //  find a way to get the userController from the main.dart
+  UserController userController = Get.find<UserController>();
 
   final List<Question> _questions = sampleData
       .map(
@@ -51,7 +55,11 @@ class QuestionController extends GetxController
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
 
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
+    if (_correctAns == _selectedAns) {
+      _numOfCorrectAns++;
+
+      userController.setScore(_numOfCorrectAns);
+    }
 
     update();
 
@@ -65,7 +73,11 @@ class QuestionController extends GetxController
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
+
+      return;
     }
+
+    Get.offAll(() => const ResultScreen());
   }
 
   void updateTheQnNum(int index) {
