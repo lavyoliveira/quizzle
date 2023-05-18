@@ -4,6 +4,8 @@ import 'package:get/state_manager.dart';
 import 'package:quizzle/models/questions.dart';
 import 'package:quizzle/controllers/user_controller.dart';
 import 'package:quizzle/views/result_screen.dart';
+import 'package:quizzle/components/wrong.dart';
+import 'package:quizzle/components/right.dart';
 
 class QuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -55,15 +57,23 @@ class QuestionController extends GetxController
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
 
-    if (_correctAns == _selectedAns) {
+    if (_correctAns == _selectedAns + 1) {
       _numOfCorrectAns++;
-
       userController.setScore(_numOfCorrectAns);
+      RightAnswer.alertSound(Get.context!);
+      RightAnswer.alert(Get.context!);
+    } else {
+      WrongAnswer.alertSound(Get.context!);
+      WrongAnswer.alert(Get.context!, question.options[question.answer - 1]);
     }
 
     update();
 
     Future.delayed(const Duration(seconds: 3), () {
+      if (_correctAns != _selectedAns + 1) {
+        Get.offAll(() => const ResultScreen());
+      }
+
       nextQuestion();
     });
   }

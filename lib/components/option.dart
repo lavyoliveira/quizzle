@@ -23,15 +23,6 @@ class Option extends StatelessWidget {
     return GetBuilder<QuestionController>(
         init: QuestionController(),
         builder: (qnController) {
-          /*if (qnController.isAnswered) {
-            if (index == qnController.correctAns) {
-              return RightAnswer();
-            } else if (index == qnController.selectedAns &&
-                qnController.selectedAns != qnController.correctAns) {
-              return WrongAnswer();
-            }
-          }*/
-
           return InkWell(
             onTap: press,
             child: Container(
