@@ -10,8 +10,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Design telas
 - [x] Front-end de perguntas
-- [ ] Feedback de resposta correta ou errada
-- [ ] Feedback de pontuação
+- [x] Feedback de resposta correta ou errada
+- [x] Feedback de pontuação
 - [ ] Back-end com firebase
 - [ ] Perfil
 - [ ] Pódium
