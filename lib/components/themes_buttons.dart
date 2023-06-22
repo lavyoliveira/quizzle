@@ -3,23 +3,25 @@ import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
 import '../views/initial_screen.dart';
 
-class ButtonStart extends StatelessWidget {
-  const ButtonStart({super.key});
+class ThemesButtons extends StatelessWidget {
+  const ThemesButtons({super.key, required this.pageToGo, required this.text});
+  final dynamic pageToGo;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.to(InitialScreen()),
+      onTap: () => Get.to(pageToGo),
       child: Container(
         width: double.infinity,
         alignment: Alignment.center,
         padding: EdgeInsets.all(kDefaultPadding * 0.75), // 15
         decoration: BoxDecoration(
-          color: lightGreen,
+          color: whiteColor,
           borderRadius: borderRadius,
         ),
         child: Text(
-          "Entrar",
+          text,
           style: Theme.of(context)
               .textTheme
               .labelLarge

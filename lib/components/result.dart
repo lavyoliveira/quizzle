@@ -6,6 +6,8 @@ import 'package:quizzle/components/ranking_card.dart';
 import 'package:quizzle/views/welcome_screen.dart';
 import 'package:quizzle/views/quiz_screen.dart';
 
+import '../views/initial_screen.dart';
+
 class Result extends StatelessWidget {
   const Result({Key? key}) : super(key: key);
 
@@ -186,7 +188,7 @@ class Result extends StatelessWidget {
                             horizontal: (kDefaultPadding) * 2),
                         child: TextButton(
                           onPressed: () {
-                            Get.offAll(const WelcomeScreen());
+                            Get.offAll(const InitialScreen());
                           },
                           child: Container(
                             padding: const EdgeInsets.all(10),
