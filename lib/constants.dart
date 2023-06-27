@@ -22,7 +22,7 @@ const double kDefaultPadding = 20.0;
 const double kDefaultTitle = 32;
 const double kDefaultSubTitle = 16;
 
-const borderRadius = BorderRadius.all(Radius.circular(20));
+const borderRadius = BorderRadius.all(Radius.circular(8));
 
 const kDefaultQuestion = TextStyle(
   color: whiteColor,
