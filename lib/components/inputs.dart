@@ -5,25 +5,26 @@ import 'package:quizzle/controllers/user_controller.dart';
 
 class InputName extends StatelessWidget {
   const InputName({super.key, required this.hintText});
+
   final String hintText;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
+    UserController userController = Get.find<UserController>();
 
     return TextField(
-      style: TextStyle(color: whiteColor, fontFamily: 'OpenSans'),
+      style: const TextStyle(color: whiteColor, fontFamily: 'OpenSans'),
       decoration: InputDecoration(
-        hintStyle: TextStyle(color: whiteColor),
+        hintStyle: const TextStyle(color: whiteColor),
         filled: true,
         fillColor: lightBlue,
         hintText: hintText,
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderRadius: borderRadius,
           borderSide: BorderSide.none,
         ),
       ),
-      onChanged: (value) => userController.setName(value),
+      onChanged: (value) => {userController.user.name = value},
     );
   }
 }

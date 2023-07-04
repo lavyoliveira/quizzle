@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
 import 'package:quizzle/components/inputs.dart';
 import 'package:quizzle/controllers/user_controller.dart';
+import 'package:quizzle/controllers/themes_controller.dart';
 
 import '../components/buttons.dart';
 
@@ -11,6 +12,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ThemeController());
     Get.put(UserController());
 
     return Scaffold(
@@ -55,6 +57,8 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 60), // 1/6
                     const ButtonStart(), // it will take 2/6 spaces
+                    const SizedBox(height: 10), // 1/6
+                    const ButtonLogin(),
                   ],
                 ),
               ),

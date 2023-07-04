@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:quizzle/constants.dart';
-import 'package:quizzle/components/result.dart';
-import 'package:quizzle/controllers/user_controller.dart';
-import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import '../components/rating.dart';
 
 class RatingScreen extends StatelessWidget {
-  const RatingScreen({Key? key}) : super(key: key);
+  const RatingScreen({Key? key, required this.score}) : super(key: key);
+
+  final List<dynamic> score;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -39,7 +35,7 @@ class RatingScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const RatingResult(),
+      body: RatingResult(score: score),
     );
   }
 }

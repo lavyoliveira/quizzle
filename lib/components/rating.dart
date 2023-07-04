@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
-import 'package:quizzle/controllers/user_controller.dart';
 import 'package:quizzle/components/ranking_card.dart';
-import 'package:quizzle/views/welcome_screen.dart';
-import 'package:quizzle/views/quiz_screen.dart';
 
 class RatingResult extends StatelessWidget {
-  const RatingResult({Key? key}) : super(key: key);
+  const RatingResult({Key? key, required this.score}) : super(key: key);
+
+  final List<dynamic> score;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
-
-    print(userController.score);
     return Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -57,10 +52,10 @@ class RatingResult extends StatelessWidget {
                       ),
                       const SizedBox(height: 60), // 1/6
                       Column(key: const Key('Ranking'), children: [
-                        for (int index = 0; index < 3; index++)
+                        for (int index = 0; index < score.length; index++)
                           RankingCard(
                             text:
-                                "${index + 1}° | ${userController.score * 10} | ${userController.name}",
+                                "${index + 1}º | ${score[index]['score']} pontos | tema: ${score[index]['theme']}",
                             color: index == 0
                                 ? kGoldColor
                                 : index == 1
@@ -70,17 +65,6 @@ class RatingResult extends StatelessWidget {
                                         : whiteColor,
                           ),
                       ]),
-                      const Icon(
-                        Icons.more_vert_outlined,
-                        color: whiteColor,
-                        size: 18,
-                      ),
-                      const SizedBox(height: 12), // 1/6
-                      RankingCard(
-                        text:
-                            "x° | ${userController.score * 10} | ${userController.name}",
-                        color: whiteColor,
-                      ),
                       const SizedBox(height: 24),
                     ],
                   ),

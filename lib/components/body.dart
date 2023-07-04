@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
+import 'package:quizzle/controllers/game_controller.dart';
 import 'package:quizzle/controllers/question_controller.dart';
-import 'package:quizzle/models/questions.dart';
-
 import 'question_card.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key? key,
-  }) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
+    GameController gameController = Get.find();
+    QuestionController questionController = gameController.questionController;
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -39,7 +38,7 @@ class Body extends StatelessWidget {
                     () => Text.rich(
                       TextSpan(
                         text:
-                            "Pergunta número ${_questionController.questionNumber.value}",
+                            "Pergunta número ${questionController.questionNumber.value}",
                         style: kDefaultQuestion,
                       ),
                     ),
@@ -50,11 +49,11 @@ class Body extends StatelessWidget {
                   child: PageView.builder(
                     // Block swipe to next qn
                     physics: const NeverScrollableScrollPhysics(),
-                    controller: _questionController.pageController,
-                    onPageChanged: _questionController.updateTheQnNum,
-                    itemCount: _questionController.questions.length,
+                    controller: questionController.pageController,
+                    onPageChanged: questionController.updateTheQnNum,
+                    itemCount: questionController.questions.length,
                     itemBuilder: (context, index) => QuestionCard(
-                        question: _questionController.questions[index]),
+                        question: questionController.questions[index]),
                   ),
                 ),
               ],

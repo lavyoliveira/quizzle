@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
-import '../views/initial_screen.dart';
 
 class ThemesButtons extends StatelessWidget {
   const ThemesButtons({super.key, required this.pageToGo, required this.text});
@@ -15,8 +14,8 @@ class ThemesButtons extends StatelessWidget {
       child: Container(
         width: double.infinity,
         alignment: Alignment.center,
-        padding: EdgeInsets.all(kDefaultPadding * 0.75), // 15
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(kDefaultPadding * 0.75), // 15
+        decoration: const BoxDecoration(
           color: whiteColor,
           borderRadius: borderRadius,
         ),

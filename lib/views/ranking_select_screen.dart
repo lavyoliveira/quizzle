@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quizzle/components/themes.dart';
+import 'package:quizzle/components/rankings.dart';
 import 'package:quizzle/constants.dart';
 
-class ThemesScreen extends StatelessWidget {
-  const ThemesScreen({super.key});
+class RankingSelectScreen extends StatelessWidget {
+  const RankingSelectScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ThemesScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const ThemeBody(),
+      body: const RankingBody(),
     );
   }
 }
