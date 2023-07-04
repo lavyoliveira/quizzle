@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/components/buttons.dart';
 import 'package:quizzle/constants.dart';
-import 'package:quizzle/controllers/game_controller.dart';
+import 'package:quizzle/controllers/ranking_controller.dart';
 import 'package:quizzle/controllers/themes_controller.dart';
-import 'package:quizzle/controllers/user_controller.dart';
 
-class ThemeBody extends StatelessWidget {
-  const ThemeBody({
+class RankingBody extends StatelessWidget {
+  const RankingBody({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final themes = Get.find<ThemeController>().themes;
-    final userController = Get.find<UserController>();
 
     for (var i = 0; i < themes.length; i++) {
       if (themes[i].theme.toLowerCase() == 'geral') {
@@ -55,8 +53,7 @@ class ThemeBody extends StatelessWidget {
                         children: [
                           ButtonPrimary(
                               onPress: () {
-                                GameController.initGame(themes[index].id,
-                                    themes[index].theme, userController);
+                                RankingController.initRanking(themes[index].id);
                               },
                               text: themes[index].theme),
                           SizedBox(height: Get.height * 0.05),

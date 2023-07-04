@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizzle/controllers/question_controller.dart';
+import 'package:quizzle/controllers/game_controller.dart';
 import 'package:quizzle/models/questions.dart';
 
 import '../../../constants.dart';
@@ -16,7 +16,8 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.put(QuestionController());
+    GameController controller = Get.find();
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: const EdgeInsets.all(kDefaultPadding),

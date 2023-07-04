@@ -1,21 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
+import 'package:quizzle/controllers/themes_controller.dart';
 import 'package:quizzle/controllers/user_controller.dart';
+import 'package:quizzle/controllers/game_controller.dart';
 import 'package:quizzle/components/ranking_card.dart';
-import 'package:quizzle/views/welcome_screen.dart';
-import 'package:quizzle/views/quiz_screen.dart';
+import 'package:quizzle/models/games.dart';
+import 'package:quizzle/models/ranking.dart';
+import 'package:quizzle/models/themes.dart';
 
 import '../views/initial_screen.dart';
 
 class Result extends StatelessWidget {
-  const Result({Key? key}) : super(key: key);
+  const Result({Key? key, required this.ranking}) : super(key: key);
+
+  final Ranking ranking;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
+    GameController gameController = Get.find();
+    Game game = gameController.game;
 
-    print(userController.score);
+    UserController userController = Get.find();
+
+    ThemeController themeController = Get.find();
+    Themes theme = themeController.themes[0];
+
+    for (var i = 0; i < themeController.themes.length; i++) {
+      if (themeController.themes[i].id == game.id) {
+        theme = themeController.themes[i];
+      }
+    }
+
+    game.userName += ' (Você)';
+    List<Game> jogos = ranking.jogos;
+    jogos.add(game);
+    if (jogos.length > 1) jogos.sort((a, b) => b.score.compareTo(a.score));
+    int positionUser = jogos.length > 1 ? jogos.indexOf(game) + 1 : 1;
+
     return Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -54,55 +76,13 @@ class Result extends StatelessWidget {
                               horizontal: kDefaultPadding),
                           child: Column(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Parabéns você conseguiu ",
-                                    style: TextStyle(
-                                        color: whiteColor,
-                                        fontSize: kDefaultSubTitle,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                  Text(
-                                    "${userController.score} pontos",
-                                    style: const TextStyle(
-                                        color: kGoldColor,
-                                        fontSize: kDefaultSubTitle,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    "no ",
-                                    style: TextStyle(
-                                        color: whiteColor,
-                                        fontSize: kDefaultSubTitle,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                  Text(
-                                    "quizzle",
-                                    style: TextStyle(
-                                        color: kGoldColor,
-                                        fontSize: kDefaultSubTitle,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                  Text(
-                                    "!",
-                                    style: TextStyle(
-                                        color: whiteColor,
-                                        fontSize: kDefaultSubTitle,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                ],
+                              Text(
+                                "Parabéns você conseguiu ${game.score} pontos!",
+                                style: const TextStyle(
+                                    color: whiteColor,
+                                    fontSize: kDefaultSubTitle,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Poppins'),
                               ),
                             ],
                           )),
@@ -116,22 +96,24 @@ class Result extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 32), // 1/6
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding),
                         child: Text.rich(
                           TextSpan(
-                            text: "Ranking",
+                            text: "Ranking do tema: ${theme.theme}",
                             style: kDefaultQuestion,
                           ),
                         ),
                       ),
                       const SizedBox(height: 24), // 1/6
                       Column(key: const Key('Ranking'), children: [
-                        for (int index = 0; index < 3; index++)
+                        for (int index = 0;
+                            index < 3 && index < jogos.length;
+                            index++)
                           RankingCard(
                             text:
-                                "${index + 1}° | ${userController.score * 10} | ${userController.name}",
+                                "${index + 1}° | ${jogos[index].score} pontos | ${(jogos[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${jogos[index].userName}'}",
                             color: index == 0
                                 ? kGoldColor
                                 : index == 1
@@ -141,24 +123,26 @@ class Result extends StatelessWidget {
                                         : whiteColor,
                           ),
                       ]),
-                      const Icon(
-                        Icons.more_vert_outlined,
-                        color: whiteColor,
-                        size: 18,
-                      ),
-                      const SizedBox(height: 12), // 1/6
-                      RankingCard(
-                        text:
-                            "x° | ${userController.score * 10} | ${userController.name}",
-                        color: whiteColor,
-                      ),
+                      if (positionUser > 3)
+                        const Icon(
+                          Icons.more_vert_outlined,
+                          color: whiteColor,
+                          size: 18,
+                        ),
+                      if (positionUser > 3) const SizedBox(height: 12), // 1/6
+                      if (positionUser > 3)
+                        RankingCard(
+                          text: "$positionUser° | ${game.score} | Você",
+                          color: whiteColor,
+                        ),
                       const SizedBox(height: 24),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: (kDefaultPadding) * 2),
                         child: TextButton(
                           onPressed: () {
-                            Get.offAll(const QuizScreen());
+                            GameController.initGame(
+                                game.themeId, theme.theme, userController);
                           },
                           child: Container(
                             padding: const EdgeInsets.all(10),
@@ -187,9 +171,7 @@ class Result extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: (kDefaultPadding) * 2),
                         child: TextButton(
-                          onPressed: () {
-                            Get.offAll(const InitialScreen());
-                          },
+                          onPressed: () => Get.offAll(const InitialScreen()),
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(

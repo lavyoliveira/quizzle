@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:quizzle/constants.dart';
-import 'package:quizzle/components/result.dart';
-import 'package:quizzle/controllers/user_controller.dart';
-import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
+import 'package:quizzle/models/ranking.dart';
 import '../components/ranking.dart';
-import '../components/rating.dart';
 
 class RankingScreen extends StatelessWidget {
-  const RankingScreen({Key? key}) : super(key: key);
+  const RankingScreen({Key? key, required this.ranking}) : super(key: key);
+
+  final Ranking ranking;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -40,7 +36,7 @@ class RankingScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const RankingResult(),
+      body: RankingResult(ranking: ranking),
     );
   }
 }

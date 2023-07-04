@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:quizzle/constants.dart';
-import 'package:quizzle/controllers/user_controller.dart';
 import 'package:quizzle/components/ranking_card.dart';
-import 'package:quizzle/views/welcome_screen.dart';
-import 'package:quizzle/views/quiz_screen.dart';
-
-import '../views/initial_screen.dart';
+import 'package:quizzle/models/games.dart';
+import 'package:quizzle/models/ranking.dart';
 
 class RankingResult extends StatelessWidget {
-  const RankingResult({Key? key}) : super(key: key);
+  const RankingResult({Key? key, required this.ranking}) : super(key: key);
+
+  final Ranking ranking;
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.find<UserController>();
+    List<Game> games = ranking.jogos;
+    int gamesLength = games.length;
 
-    print(userController.score);
     return Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -38,12 +36,12 @@ class RankingResult extends StatelessWidget {
                             EdgeInsets.symmetric(horizontal: kDefaultPadding),
                       ),
                       const SizedBox(height: kDefaultPadding),
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding),
                         child: Text.rich(
                           TextSpan(
-                            text: "Ranking",
+                            text: "Ranking ${ranking.nome}",
                             style: kDefaultQuestion,
                           ),
                         ),
@@ -59,18 +57,27 @@ class RankingResult extends StatelessWidget {
                       ), // 1/6
                       const SizedBox(height: 60), // 1/6
                       Column(key: const Key('Ranking'), children: [
-                        for (int index = 0; index < 3; index++)
-                          RankingCard(
-                            text:
-                                "${index + 1}° | ${userController.score * 10} | ${userController.name}",
-                            color: index == 0
-                                ? kGoldColor
-                                : index == 1
-                                    ? kSilverColor
-                                    : index == 2
-                                        ? kBronzeColor
-                                        : whiteColor,
+                        if (gamesLength == 0)
+                          const Text(
+                            "Nenhum jogo foi realizado ainda.",
+                            style: TextStyle(
+                              color: whiteColor,
+                              fontSize: 20,
+                            ),
                           ),
+                        if (gamesLength > 0)
+                          for (int index = 0; index < gamesLength; index++)
+                            RankingCard(
+                              text:
+                                  "${index + 1}° | ${games[index].score} pontos | ${(games[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${games[index].userName}'}",
+                              color: index == 0
+                                  ? kGoldColor
+                                  : index == 1
+                                      ? kSilverColor
+                                      : index == 2
+                                          ? kBronzeColor
+                                          : whiteColor,
+                            ),
                       ]),
                     ],
                   ),

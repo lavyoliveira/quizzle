@@ -1,6 +1,6 @@
 class Question {
-  final int id, answer;
-  final String question;
+  final String id, question;
+  final int answer;
   final List<String> options;
 
   Question(
@@ -8,6 +8,32 @@ class Question {
       required this.question,
       required this.answer,
       required this.options});
+
+  String get getId => id;
+  int get getAnswer => answer;
+  String get getQuestion => question;
+  List<String> get getOptions => options;
+
+  void setAnswer(int answer) {
+    answer = answer;
+  }
+
+  void setQuestion(String question) {
+    question = question;
+  }
+
+  void setOptions(List<String> options) {
+    options = options;
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'question': question,
+      'answer': answer,
+      'options': options,
+    };
+  }
 }
 
 const List sampleData = [

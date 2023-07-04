@@ -5,8 +5,9 @@ import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quizzle/constants.dart';
 
-class RightAnswer {
-  static Future<void> alert(BuildContext context) async {
+class ErrorAlert {
+  static Future<void> alert(
+      BuildContext context, String title, String message) {
     return showDialog(
       barrierDismissible: false,
       context: context,
@@ -23,42 +24,27 @@ class RightAnswer {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(
-                  Icons.check_outlined,
-                  color: Colors.green,
+                  Icons.close_outlined,
+                  color: Colors.red,
                   size: 50,
                 ),
                 const SizedBox(height: 12),
-                const Text(
-                  "Resposta correta",
-                  style: TextStyle(
+                Text(
+                  title,
+                  style: const TextStyle(
                       fontSize: 14,
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w600,
                       color: kBlackColor),
                 ),
                 const SizedBox(height: 12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Você acertou a resposta!",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w400,
-                          color: kBlackColor),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  "Você ganhou 10 pontos!",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w400,
-                    color: kBlackColor,
-                  ),
+                Text(
+                  message,
+                  style: const TextStyle(
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400,
+                      color: kBlackColor),
                 ),
               ],
             ),
@@ -88,10 +74,10 @@ class RightAnswer {
   }
 
   static Future<void> alertSound(BuildContext context) async {
-    FlutterSoundPlayer mPlayer = FlutterSoundPlayer();
+    FlutterSoundPlayer? mPlayer = FlutterSoundPlayer();
     Uint8List? soundData;
 
-    var asset = await rootBundle.load('assets/sounds/win.wav');
+    var asset = await rootBundle.load('assets/sounds/error.wav');
     await mPlayer.openPlayer();
     soundData = asset.buffer.asUint8List();
 

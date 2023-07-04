@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:quizzle/components/right.dart';
-import 'package:quizzle/components/wrong.dart';
 import 'package:quizzle/controllers/question_controller.dart';
-import 'package:xen_popup_card/xen_card.dart';
 
 import '../../../constants.dart';
 

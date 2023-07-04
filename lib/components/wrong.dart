@@ -51,45 +51,14 @@ class WrongAnswer {
                   ],
                 ),
                 const SizedBox(height: 12),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          "A resposta correta é ",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400,
-                            color: kBlackColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          awnserCorrect,
-                          style: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: bgColorBlue),
-                        ),
-                        const Text(
-                          "!",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w400,
-                              color: kBlackColor),
-                        ),
-                      ],
-                    ),
-                  ],
+                Text(
+                  "A resposta correta é $awnserCorrect!",
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w400,
+                    color: kBlackColor,
+                  ),
                 ),
               ],
             ),

@@ -1,47 +1,38 @@
+// ignore_for_file: unnecessary_getters_setters
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:quizzle/models/questions.dart';
-import 'package:quizzle/controllers/user_controller.dart';
-import 'package:quizzle/views/result_screen.dart';
 import 'package:quizzle/components/wrong.dart';
 import 'package:quizzle/components/right.dart';
+import 'package:quizzle/services/get_questions.dart';
 
 class QuestionController extends GetxController
-    with SingleGetTickerProviderMixin {
+    with GetSingleTickerProviderStateMixin {
   late PageController _pageController;
   PageController get pageController => _pageController;
-  //  find a way to get the userController from the main.dart
-  UserController userController = Get.find<UserController>();
 
-  final List<Question> _questions = sampleData
-      .map(
-        (question) => Question(
-            id: question['id'],
-            question: question['question'],
-            options: question['options'],
-            answer: question['answer_index']),
-      )
-      .toList();
+  final List<Question> _questions = [];
   List<Question> get questions => _questions;
 
   bool _isAnswered = false;
   bool get isAnswered => _isAnswered;
+  set isAnswered(bool isAnswered) => _isAnswered = isAnswered;
 
   late int _correctAns;
   int get correctAns => _correctAns;
+  set correctAns(int correctAns) => _correctAns = correctAns;
 
   late int _selectedAns;
   int get selectedAns => _selectedAns;
+  set selectedAns(int selectedAns) => _selectedAns = selectedAns;
 
   final RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => _questionNumber;
 
-  int _numOfCorrectAns = 0;
-  int get numOfCorrectAns => _numOfCorrectAns;
-
   @override
   void onInit() {
+    _questions.clear();
     _pageController = PageController();
     super.onInit();
   }
@@ -52,14 +43,26 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
+  Future<void> fetchQuestions(String themeId, String theme) async {
+    if (theme.toLowerCase() == "geral") {
+      final questions = await GetQuestions().getRandomQuestions();
+      _questions.assignAll(questions);
+      update();
+      return;
+    } else {
+      final questions = await GetQuestions().getQuestionsByTheme(themeId);
+      _questions.assignAll(questions);
+      update();
+      return;
+    }
+  }
+
   void checkAns(Question question, int selectedIndex) {
     _isAnswered = true;
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns + 1) {
-      _numOfCorrectAns++;
-      userController.setScore(_numOfCorrectAns);
       RightAnswer.alertSound(Get.context!);
       RightAnswer.alert(Get.context!);
     } else {
@@ -70,9 +73,9 @@ class QuestionController extends GetxController
     update();
 
     Future.delayed(const Duration(seconds: 3), () {
-      if (_correctAns != _selectedAns + 1) {
-        Get.offAll(() => const ResultScreen());
-      }
+      // if (_correctAns != _selectedAns + 1) {
+      //   Get.offAll(() => const ResultScreen());
+      // }
 
       nextQuestion();
     });
@@ -87,7 +90,7 @@ class QuestionController extends GetxController
       return;
     }
 
-    Get.offAll(() => const ResultScreen());
+    //Get.offAll(() => const ResultScreen());
   }
 
   void updateTheQnNum(int index) {

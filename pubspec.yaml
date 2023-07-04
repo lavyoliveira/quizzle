@@ -38,6 +38,13 @@ dependencies:
   get: ^4.6.5
   xen_popup_card: ^0.0.1
   flutter_sound: ^9.2.13
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  google_sign_in: ^6.1.4
+  cloud_firestore: ^4.8.2
+  uuid: ^3.0.7
+  http: ^0.13.6
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +73,7 @@ flutter:
     - assets/images/logo.png
     - assets/sounds/fail.wav
     - assets/sounds/win.wav
+    - assets/sounds/error.wav
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
