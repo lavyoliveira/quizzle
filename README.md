@@ -12,9 +12,11 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Front-end de perguntas
 - [x] Feedback de resposta correta ou errada
 - [x] Feedback de pontuação
-- [ ] Back-end com firebase
-- [ ] Perfil
-- [ ] Pódium
+- [x] Back-end com firebase
+- [x] Ranking
+- [x] Minhas pontuações
+- [x] Tipos de jogo
+- [ ] Perfil e login social
 
 ## 💻 Pré-requisitos
 
