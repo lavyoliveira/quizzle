@@ -59,7 +59,7 @@ class ThemeBody extends StatelessWidget {
                                     themes[index].theme, userController);
                               },
                               text: themes[index].theme),
-                          SizedBox(height: Get.height * 0.05),
+                          SizedBox(height: Get.height * 0.03),
                         ],
                       );
                     },
