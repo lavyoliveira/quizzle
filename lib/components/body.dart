@@ -38,7 +38,7 @@ class Body extends StatelessWidget {
                     () => Text.rich(
                       TextSpan(
                         text:
-                            "Pergunta número ${questionController.questionNumber.value}",
+                            "Pergunta número ${questionController.questionNumber.value} de ${questionController.questions.length}",
                         style: kDefaultQuestion,
                       ),
                     ),

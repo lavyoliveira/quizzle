@@ -9,66 +9,76 @@ import 'package:quizzle/views/themes_screen.dart';
 import '../components/initial_buttons.dart';
 
 class InitialScreen extends StatelessWidget {
-  const InitialScreen({super.key});
+  const InitialScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
     final userController = Get.find<UserController>();
 
     return Scaffold(
-      backgroundColor: bgColorBlue,
       body: Container(
-        decoration: const BoxDecoration(
+        height: double.infinity,
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [bgColorBlue, lightBlue, lightGreen],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
-        child: Stack(
-          children: [
-            Positioned(
-              top: Get.width * 0.3,
-              left: Get.width * 0.3,
-              child: Image.asset(
-                "assets/images/logo.png",
-                width: Get.width * 0.4,
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Positioned(
+                top: Get.width * 0.3,
+                left: Get.width * 0.3,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  width: Get.width * 0.4,
+                ),
               ),
-            ),
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: Get.height * 0.4), //2/6
-                    ButtonPrimary(
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: Get.height * 0.33),
+                      ButtonPrimary(
                         onPress: () {
                           GameController.initGame(
-                              'tDgUUnib7rNwV4Kedj3L', 'geral', userController);
+                            'tDgUUnib7rNwV4Kedj3L',
+                            'geral',
+                            userController,
+                          );
                         },
-                        text: "Jogo Geral"),
-                    SizedBox(height: Get.height * 0.05),
-                    const InitialButton(
-                      pageToGo: ThemesScreen(),
-                      text: 'Temas',
-                    ),
-                    SizedBox(height: Get.height * 0.05),
-                    ButtonPrimary(
+                        text: "Jogo Geral",
+                      ),
+                      SizedBox(height: Get.height * 0.04),
+                      const InitialButton(
+                        pageToGo: ThemesScreen(),
+                        text: 'Temas',
+                      ),
+                      SizedBox(height: Get.height * 0.04),
+                      ButtonPrimary(
                         onPress: () {
                           userController.getScores();
                         },
-                        text: "Minhas Pontuações"),
-                    SizedBox(height: Get.height * 0.05),
-                    const InitialButton(
-                      pageToGo: RankingSelectScreen(),
-                      text: 'Ranking',
-                    ),
-                  ],
+                        text: "Minhas Pontuações",
+                      ),
+                      SizedBox(height: Get.height * 0.04),
+                      const InitialButton(
+                        pageToGo: RankingSelectScreen(),
+                        text: 'Ranking',
+                      ),
+                      SizedBox(
+                          height:
+                              30), // Adicione um espaço extra no final, se necessário
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

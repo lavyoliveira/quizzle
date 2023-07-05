@@ -14,14 +14,20 @@ class ButtonStart extends StatelessWidget {
 
     return InkWell(
       onTap: () => {
-        if (userController.user.name != "")
-          {Get.to(() => const InitialScreen())}
-        else
+        if (userController.user.name.trimRight() != userController.user.name)
           {
             ErrorAlert.alertSound(context),
             ErrorAlert.alert(
-                context, "Nome inválido", "Por favor, insira um nome válido")
+                context, "Nome com espaço.", "Por favor, insira um nome válido")
           }
+        else if (userController.user.name == '')
+          {
+            ErrorAlert.alertSound(context),
+            ErrorAlert.alert(
+                context, "Nome vazio.", "Por favor, insira um nome válido")
+          }
+        else
+          {Get.to(() => InitialScreen())}
       },
       child: Container(
         width: double.infinity,
