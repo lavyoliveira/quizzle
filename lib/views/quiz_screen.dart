@@ -25,16 +25,21 @@ class QuizScreen extends StatelessWidget {
               height: 50,
             ),
             FloatingActionButton.small(
-                elevation: 0,
-                shape: const CircleBorder(
-                  side: BorderSide(width: 3, color: whiteColor),
-                ),
-                backgroundColor: Colors.transparent,
-                onPressed: () =>
-                    {gameController.resetGame(), Navigator.of(context).pop()},
-                child: const Icon(
-                  Icons.close,
-                )),
+              elevation: 0,
+              shape: const CircleBorder(
+                side: BorderSide(width: 3, color: whiteColor),
+              ),
+              backgroundColor: Colors.transparent,
+              onPressed: () {
+                gameController.resetGame();
+                Navigator.of(context).pop();
+              },
+              child: Semantics(
+                explicitChildNodes: true,
+                label: 'Botão voltar',
+                child: const Icon(Icons.close),
+              ),
+            ),
           ],
         ),
       ),

@@ -69,7 +69,7 @@ class RankingResult extends StatelessWidget {
                           for (int index = 0; index < gamesLength; index++)
                             RankingCard(
                               text:
-                                  "${index + 1}° | ${games[index].score} pontos | ${(games[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${games[index].userName}'}",
+                                  "${index + 1}º | ${games[index].score} pontos | ${(games[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${games[index].userName}'}",
                               color: index == 0
                                   ? kGoldColor
                                   : index == 1
