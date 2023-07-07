@@ -28,6 +28,7 @@ class RatingScreen extends StatelessWidget {
                 side: BorderSide(width: 3, color: whiteColor),
               ),
               backgroundColor: Colors.transparent,
+              autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
               child: Semantics(
                 explicitChildNodes: true,

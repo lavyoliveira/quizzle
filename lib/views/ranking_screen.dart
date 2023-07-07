@@ -30,6 +30,7 @@ class RankingScreen extends StatelessWidget {
               ),
               backgroundColor: Colors.transparent,
               onPressed: () => Navigator.of(context).pop(),
+              autofocus: true,
               child: Semantics(
                 explicitChildNodes: true,
                 label: 'Botão voltar',

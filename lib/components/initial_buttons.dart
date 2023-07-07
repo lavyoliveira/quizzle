@@ -18,7 +18,7 @@ class InitialButton extends StatelessWidget {
           width: double.infinity,
           alignment: Alignment.center,
           padding: const EdgeInsets.all(kDefaultPadding * 0.75), // 15
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: whiteColor,
             borderRadius: borderRadius,
           ),

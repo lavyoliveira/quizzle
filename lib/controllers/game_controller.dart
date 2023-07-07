@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:quizzle/components/right.dart';
-import 'package:quizzle/components/wrong.dart';
+import 'package:quizzle/components/alert.dart';
 import 'package:quizzle/controllers/question_controller.dart';
 import 'package:quizzle/controllers/user_controller.dart';
 import 'package:quizzle/models/games.dart';
@@ -69,11 +68,14 @@ class GameController extends GetxController
 
     if (questionController.correctAns == questionController.selectedAns + 1) {
       updateScore();
-      RightAnswer.alertSound(Get.context!);
-      RightAnswer.alert(Get.context!);
+      Alert.showAlert(Get.context!, "Resposta correta!",
+          "Parabéns, você acertou a resposta e ganhou 10 pontos!", "right");
     } else {
-      WrongAnswer.alertSound(Get.context!);
-      WrongAnswer.alert(Get.context!, question.options[question.answer - 1]);
+      Alert.showAlert(
+          Get.context!,
+          "Resposta incorreta!",
+          "Você errou a resposta! A resposta correta é: ${question.options[question.answer - 1]}",
+          "wrong");
     }
 
     Future.delayed(const Duration(seconds: 3), () {

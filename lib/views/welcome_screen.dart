@@ -18,7 +18,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [bgColorBlue, lightBlue, lightGreen],
             begin: Alignment.topLeft,
@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                       const SizedBox(height: 60),
                       const ButtonStart(),
                       const SizedBox(height: 10),
-                      const ButtonLogin(),
+                      //const ButtonLogin(),
                       const SizedBox(
                           height:
                               30), // Adicione um espaço extra no final, se necessário
