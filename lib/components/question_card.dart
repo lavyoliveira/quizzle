@@ -30,10 +30,13 @@ class QuestionCard extends StatelessWidget {
           const SizedBox(height: 30),
           ...List.generate(
             question.options.length,
-            (index) => Option(
-              index: index,
-              text: question.options[index],
-              press: () => controller.checkAns(question, index),
+            (index) => Semantics(
+              label: 'Alternativa',
+              child: Option(
+                index: index,
+                text: question.options[index],
+                press: () => controller.checkAns(question, index),
+              ),
             ),
           ),
         ],

@@ -113,7 +113,7 @@ class Result extends StatelessWidget {
                             index++)
                           RankingCard(
                             text:
-                                "${index + 1}° | ${jogos[index].score} pontos | ${(jogos[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${jogos[index].userName}'}",
+                                "${index + 1}º | ${jogos[index].score} pontos | ${(jogos[index].userName == '') ? 'Usuário Anônimo' : 'usuario: ${jogos[index].userName}'}",
                             color: index == 0
                                 ? kGoldColor
                                 : index == 1
@@ -132,7 +132,7 @@ class Result extends StatelessWidget {
                       if (positionUser > 3) const SizedBox(height: 12), // 1/6
                       if (positionUser > 3)
                         RankingCard(
-                          text: "$positionUser° | ${game.score} | Você",
+                          text: "$positionUserº | ${game.score} | Você",
                           color: whiteColor,
                         ),
                       const SizedBox(height: 24),
