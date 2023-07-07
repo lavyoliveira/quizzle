@@ -13,14 +13,6 @@ class RankingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themes = Get.find<ThemeController>().themes;
-
-    for (var i = 0; i < themes.length; i++) {
-      if (themes[i].theme.toLowerCase() == 'geral') {
-        themes.removeAt(i);
-        break;
-      }
-    }
-
     final themesQty = themes.length;
 
     themes.sort((a, b) => a.theme.compareTo(b.theme));
@@ -55,7 +47,8 @@ class RankingBody extends StatelessWidget {
                               onPress: () {
                                 RankingController.initRanking(themes[index].id);
                               },
-                              text: themes[index].theme),
+                              text: themes[index].theme,
+                              focus: false),
                           SizedBox(height: Get.height * 0.05),
                         ],
                       );

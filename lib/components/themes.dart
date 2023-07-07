@@ -5,6 +5,7 @@ import 'package:quizzle/constants.dart';
 import 'package:quizzle/controllers/game_controller.dart';
 import 'package:quizzle/controllers/themes_controller.dart';
 import 'package:quizzle/controllers/user_controller.dart';
+import 'package:quizzle/models/themes.dart';
 
 class ThemeBody extends StatelessWidget {
   const ThemeBody({
@@ -13,13 +14,13 @@ class ThemeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themes = Get.find<ThemeController>().themes;
+    final themesList = Get.find<ThemeController>().themes;
     final userController = Get.find<UserController>();
+    var themes = <Themes>[];
 
-    for (var i = 0; i < themes.length; i++) {
-      if (themes[i].theme.toLowerCase() == 'geral') {
-        themes.removeAt(i);
-        break;
+    for (var i = 0; i < themesList.length; i++) {
+      if (themesList[i].theme.toLowerCase() != 'geral') {
+        themes.add(themesList[i]);
       }
     }
 
@@ -58,7 +59,8 @@ class ThemeBody extends StatelessWidget {
                                 GameController.initGame(themes[index].id,
                                     themes[index].theme, userController);
                               },
-                              text: themes[index].theme),
+                              text: themes[index].theme,
+                              focus: false),
                           SizedBox(height: Get.height * 0.03),
                         ],
                       );

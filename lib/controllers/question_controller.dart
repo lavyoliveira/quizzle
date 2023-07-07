@@ -3,8 +3,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:quizzle/models/questions.dart';
-import 'package:quizzle/components/wrong.dart';
-import 'package:quizzle/components/right.dart';
+// import 'package:quizzle/components/wrong.dart';
+// import 'package:quizzle/components/right.dart';
 import 'package:quizzle/services/get_questions.dart';
 
 class QuestionController extends GetxController
@@ -63,11 +63,11 @@ class QuestionController extends GetxController
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns + 1) {
-      RightAnswer.alertSound(Get.context!);
-      RightAnswer.alert(Get.context!);
+      // RightAnswer.alertSound(Get.context!);
+      // RightAnswer.alert(Get.context!);
     } else {
-      WrongAnswer.alertSound(Get.context!);
-      WrongAnswer.alert(Get.context!, question.options[question.answer - 1]);
+      // WrongAnswer.alertSound(Get.context!);
+      // WrongAnswer.alert(Get.context!, question.options[question.answer - 1]);
     }
 
     update();

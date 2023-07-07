@@ -18,7 +18,7 @@ class InitialScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [bgColorBlue, lightBlue, lightGreen],
             begin: Alignment.topLeft,
@@ -52,11 +52,13 @@ class InitialScreen extends StatelessWidget {
                           );
                         },
                         text: "Jogo Geral",
+                        focus: true,
                       ),
                       SizedBox(height: Get.height * 0.04),
-                      const InitialButton(
-                        pageToGo: ThemesScreen(),
-                        text: 'Temas',
+                      ButtonPrimary(
+                        onPress: () => Get.to(const ThemesScreen()),
+                        text: "Temas",
+                        focus: false,
                       ),
                       SizedBox(height: Get.height * 0.04),
                       ButtonPrimary(
@@ -64,13 +66,46 @@ class InitialScreen extends StatelessWidget {
                           userController.getScores();
                         },
                         text: "Minhas Pontuações",
+                        focus: false,
                       ),
                       SizedBox(height: Get.height * 0.04),
-                      const InitialButton(
-                        pageToGo: RankingSelectScreen(),
-                        text: 'Ranking',
+                      ButtonPrimary(
+                        onPress: () => Get.to(const RankingSelectScreen()),
+                        text: "Ranking",
+                        focus: false,
                       ),
-                      SizedBox(
+                      SizedBox(height: Get.height * 0.04),
+
+                      // FocusScope(
+                      //   child: ButtonPrimary(
+                      //     onPress: () {
+                      //       GameController.initGame(
+                      //         'tDgUUnib7rNwV4Kedj3L',
+                      //         'geral',
+                      //         userController,
+                      //       );
+                      //     },
+                      //     text: "Jogo Geral",
+                      //   ),
+                      // ),
+                      // SizedBox(height: Get.height * 0.04),
+                      // const InitialButton(
+                      //   pageToGo: ThemesScreen(),
+                      //   text: 'Temas',
+                      // ),
+                      // SizedBox(height: Get.height * 0.04),
+                      // ButtonPrimary(
+                      //   onPress: () {
+                      //     userController.getScores();
+                      //   },
+                      //   text: "Minhas Pontuações",
+                      // ),
+                      // SizedBox(height: Get.height * 0.04),
+                      // const InitialButton(
+                      //   pageToGo: RankingSelectScreen(),
+                      //   text: 'Ranking',
+                      // ),
+                      const SizedBox(
                           height:
                               30), // Adicione um espaço extra no final, se necessário
                     ],

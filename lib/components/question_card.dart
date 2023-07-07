@@ -31,7 +31,7 @@ class QuestionCard extends StatelessWidget {
           ...List.generate(
             question.options.length,
             (index) => Semantics(
-              label: 'Alternativa',
+              label: 'Alternativa ${index + 1}: ${question.options[index]}',
               child: Option(
                 index: index,
                 text: question.options[index],

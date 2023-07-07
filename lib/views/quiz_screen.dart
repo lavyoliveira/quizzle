@@ -30,6 +30,7 @@ class QuizScreen extends StatelessWidget {
                 side: BorderSide(width: 3, color: whiteColor),
               ),
               backgroundColor: Colors.transparent,
+              autofocus: true,
               onPressed: () {
                 gameController.resetGame();
                 Navigator.of(context).pop();
