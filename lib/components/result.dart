@@ -89,17 +89,6 @@ class Result extends StatelessWidget {
                           thickness: 1,
                         ),
                       ),
-                      const SizedBox(height: 32), // 1/6
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding),
-                        child: Text.rich(
-                          TextSpan(
-                            text: "Ranking do tema: ${theme.theme}",
-                            style: kDefaultQuestion,
-                          ),
-                        ),
-                      ),
                       const SizedBox(height: 24), // 1/6
                       Column(key: const Key('Ranking'), children: [
                         for (int index = 0;
