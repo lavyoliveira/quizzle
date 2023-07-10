@@ -39,13 +39,7 @@ class Result extends StatelessWidget {
     int positionUser = jogos.length > 1 ? jogos.indexOf(game) + 1 : 1;
 
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [bgColorBlue, lightBlue],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: const BoxDecoration(color: bgColorBlue),
         child: SizedBox(
             width: double.infinity,
             height: double.infinity,

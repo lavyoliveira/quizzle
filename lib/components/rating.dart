@@ -10,13 +10,7 @@ class RatingResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [bgColorBlue, lightBlue],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: const BoxDecoration(color: bgColorBlue),
         child: SizedBox(
             width: double.infinity,
             height: double.infinity,

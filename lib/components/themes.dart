@@ -29,13 +29,7 @@ class ThemeBody extends StatelessWidget {
     themes.sort((a, b) => a.theme.compareTo(b.theme));
 
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [bgColorBlue, lightBlue],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
+      decoration: const BoxDecoration(color: bgColorBlue),
       child: Stack(
         children: [
           SafeArea(
