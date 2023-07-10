@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quizzle/constants.dart';
+import 'package:vibration/vibration.dart';
 
 const types = {
   'error': {
@@ -40,6 +41,10 @@ class Alert {
     }
 
     playSound();
+
+    if (type == 'error' || type == 'wrong') {
+      vibrate(); // Adiciona a vibração para o alerta de erro
+    }
 
     return showDialog(
       barrierDismissible: false,
@@ -128,5 +133,9 @@ class Alert {
 
     await mPlayer.feedFromStream(soundData);
     await mPlayer.stopPlayer();
+  }
+
+  static void vibrate() {
+    Vibration.vibrate(duration: 200);
   }
 }
