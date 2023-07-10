@@ -18,13 +18,7 @@ class InitialScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [bgColorBlue, lightBlue, lightGreen],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: const BoxDecoration(color: bgColorBlue),
         child: SingleChildScrollView(
           child: Stack(
             children: [

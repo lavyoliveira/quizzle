@@ -15,11 +15,7 @@ class Body extends StatelessWidget {
 
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [bgColorBlue, lightBlue],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: bgColorBlue,
       ),
       child: Stack(
         children: [

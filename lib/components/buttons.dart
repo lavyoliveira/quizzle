@@ -35,7 +35,7 @@ class ButtonStart extends StatelessWidget {
           alignment: Alignment.center,
           padding: const EdgeInsets.all(kDefaultPadding * 0.75), // 15
           decoration: const BoxDecoration(
-            color: lightGreen,
+            color: whiteColor,
             borderRadius: borderRadius,
           ),
           child: Text(
